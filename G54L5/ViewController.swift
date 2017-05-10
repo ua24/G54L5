@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var headerLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,6 +44,10 @@ class ViewController: UIViewController {
         print("run #\(count)")
         count += 1
         UserDefaults.standard.set(count, forKey: kRunCount)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        headerLabel.text = (arc4random()%100).description
     }
 
 }
