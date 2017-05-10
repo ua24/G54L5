@@ -26,13 +26,19 @@ class ViewController: UIViewController {
         }
         
         let arr = NSArray(contentsOfFile: path)
-        print(arr)
+        print(arr ?? "")
         if let numbersArr = arr as? [Int] {
             print(numbersArr)
         }
-        
+        checkRunCount()
     }
-
+    
+    func checkRunCount() {
+        var count = UserDefaults.standard.integer(forKey: kRunCount)
+        print("run #\(count)")
+        count += 1
+        UserDefaults.standard.set(count, forKey: kRunCount)
+    }
 
 }
 
