@@ -31,6 +31,9 @@ class ViewController: UIViewController {
             print(numbersArr)
         }
         checkRunCount()
+        view.backgroundColor = UIColor(red: CGFloat(arc4random_uniform(255))/255, green: CGFloat(arc4random_uniform(255))/255, blue: CGFloat(arc4random_uniform(255))/255, alpha: 1)
+        let image = UIImage(named: "ImageLogin")
+        print(image)
     }
     
     func checkRunCount() {
