@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
     
     
     override func viewDidLoad() {
@@ -36,8 +37,18 @@ class ViewController: UIViewController {
         checkRunCount()
         view.backgroundColor = UIColor(red: CGFloat(arc4random_uniform(255))/255, green: CGFloat(arc4random_uniform(255))/255, blue: CGFloat(arc4random_uniform(255))/255, alpha: 1)
         let image = UIImage(named: "ImageLogin")
-        print(image)
+        print(image ?? "")
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        headerLabel.text = (arc4random()%100).description
+    }
+    
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        textView.text = sender.description
+    }
+    
     
     func checkRunCount() {
         var count = UserDefaults.standard.integer(forKey: kRunCount)
@@ -46,9 +57,7 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(count, forKey: kRunCount)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        headerLabel.text = (arc4random()%100).description
-    }
+    
 
 }
 
